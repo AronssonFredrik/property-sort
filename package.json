@@ -1,6 +1,6 @@
 {
   "name": "property-sort",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Sorting an array by it's property",
   "module": "dist/bundle.js",
   "main": "dist/bundle.js",
@@ -18,6 +18,8 @@
     "dist"
   ],
   "devDependencies": {
+    "ts-loader": "^8.0.9",
+    "typescript": "^4.0.5",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.2.0"
   }
