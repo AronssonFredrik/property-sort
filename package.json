@@ -1,13 +1,15 @@
 {
   "name": "property-sort",
-  "version": "0.0.8",
+  "version": "0.0.11",
   "description": "Sorting an array by it's property",
   "type": "module",
   "main": "dist/bundle.js",
-  "types": "dist/index.d.ts",
+  "types": "src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
+    "cleanup": "rm -rf ./dist",
+    "build": "npm run cleanup && webpack --mode production",
+    "deploy": "npm publish",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [
@@ -17,7 +19,9 @@
   "author": "Fredrik Aronsson",
   "license": "ISC",
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "README.md"
   ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.6.1",
