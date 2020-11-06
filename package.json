@@ -1,0 +1,24 @@
+{
+  "name": "property-sort",
+  "version": "0.0.6",
+  "description": "Sorting an array by it's property",
+  "module": "dist/bundle.js",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
+  },
+  "keywords": [
+    "javascript",
+    "sort"
+  ],
+  "author": "Fredrik Aronsson",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
