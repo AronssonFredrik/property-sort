@@ -4,8 +4,7 @@ import { SortAlphabeticalOrder } from "./alphabeticalOrder";
 let array = [
     { name: 'Zeta' },
     { name: 'Beta' },
-    { name: 'Alpha' },
-    { name: 'Ärling' }
+    { name: 'Alpha' }
 ];
 
 describe('Sort by alphabetical order', () => {
@@ -23,33 +22,7 @@ describe('Sort by alphabetical order', () => {
             sortKey: 'name'
         });
 
-        expect(array[0].name).toBe('Ärling');
+        expect(array[0].name).toBe('Zeta');
     });
 
-    describe('Handle diacritic characters', () => {
-        test('in German, ä sorts before z', () => {
-            array = SortAlphabeticalOrder(array, {
-                direction: SortDirections.Ascending,
-                sortKey: 'name',
-                locale: 'de'
-            });
-
-            const indexOfÄ = array.findIndex(item => item.name === 'Ärling');
-            const indexOfZ = array.findIndex(item => item.name === 'Zeta');
-
-            expect(indexOfÄ).toBeLessThan(indexOfZ);
-        });
-        test('in Swedish, ä sorts before z', () => {
-            array = SortAlphabeticalOrder(array, {
-                direction: SortDirections.Ascending,
-                sortKey: 'name',
-                locale: 'se'
-            });
-
-            const indexOfÄ = array.findIndex(item => item.name === 'Ärling');
-            const indexOfZ = array.findIndex(item => item.name === 'Zeta');
-
-            expect(indexOfÄ).toBeGreaterThan(indexOfZ);
-        });
-    });
 });

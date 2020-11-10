@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest --config jest.config.json",
+    "test": "jest",
     "cleanup": "rm -rf ./dist",
     "build": "npm run cleanup && tsc",
     "deploy": "npm publish",
