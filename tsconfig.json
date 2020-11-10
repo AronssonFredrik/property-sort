@@ -8,7 +8,8 @@
         "declaration": true,
         "declarationMap": true,
         "noImplicitAny": true,
-        "allowUmdGlobalAccess": true
+        "allowUmdGlobalAccess": true,
+        "esModuleInterop": true
     },
     "exclude": [
         "node_modules"
