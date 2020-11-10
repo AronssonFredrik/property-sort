@@ -1,14 +1,14 @@
 {
   "name": "property-sort",
-  "version": "0.0.11",
+  "version": "0.0.13",
   "description": "Sorting an array by it's property",
   "type": "module",
-  "main": "dist/bundle.js",
-  "types": "src/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "cleanup": "rm -rf ./dist",
-    "build": "npm run cleanup && webpack --mode production",
+    "build": "npm run cleanup && tsc",
     "deploy": "npm publish",
     "lint": "eslint . --ext .ts"
   },
