@@ -40,7 +40,7 @@ describe('Sort by alphabetical order', () => {
 
             expect(indexOfÄ).toBeLessThan(indexOfZ);
         });
-        test('in Swedish, ä sorts before z', () => {
+        test('in Swedish, ä sorts after z', () => {
             array = SortAlphabeticalOrder(array, {
                 direction: SortDirections.Ascending,
                 sortKey: 'name',
