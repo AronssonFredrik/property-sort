@@ -1,12 +1,12 @@
 name: Node CI
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   Tests:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [8.x, 10.x]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node-version: [10.x]
+        os: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
@@ -21,6 +21,6 @@ jobs:
         npm test
     - name: npm lint
       run: |
-        npm lint
+        npm run lint
       env:
         CI: true
