@@ -1,4 +1,14 @@
-import sortByProperty from './sortByProperty/sortByProperty';
+import { SortAlphabeticalOrder } from './alphabeticalOrder/alphabeticalOrder';
 import SortByProperty from './sortByProperty/sortByProperty';
+import { SortOptions, SortDirections } from './sortByProperty/sortByProperty.interface';
 
-export default SortByProperty as typeof sortByProperty;
+export default SortByProperty;
+
+export {
+    SortByProperty,
+    SortAlphabeticalOrder,
+
+    SortOptions,
+
+    SortDirections
+};
