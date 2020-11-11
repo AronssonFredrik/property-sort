@@ -1,5 +1,5 @@
-import { SortDirections } from "../sortByProperty/sortByProperty.interface";
-import { SortAlphabeticalOrder } from "./alphabeticalOrder";
+import { SortDirections } from "../sort.interface";
+import { SortAlphabeticalOrder } from "./alphabetical";
 
 interface alphabeticalCollection {
     name: string;

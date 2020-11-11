@@ -1,4 +1,4 @@
-import { SortDirections, SortOptions } from "../sortByProperty/sortByProperty.interface";
+import { SortDirections, SortOptions } from "../sort.interface";
 
 export const SortAlphabeticalOrder = (collection: any[], options: SortOptions): any[] => {
     return collection.sort((a: Record<string, string>, b: Record<string, string>) => {

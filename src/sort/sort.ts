@@ -1,5 +1,5 @@
-import { SortAlphabeticalOrder } from "../alphabeticalOrder/alphabeticalOrder";
-import { SortOptions } from "./sortByProperty.interface";
+import { SortAlphabeticalOrder } from "./alphabetical/alphabetical";
+import { SortOptions } from "./sort.interface";
 
 // todo
 export default (collection: any[], options: SortOptions): any[] => {
