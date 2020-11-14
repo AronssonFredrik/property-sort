@@ -11,11 +11,15 @@
  *  ignorePunctuation: true
  * }
  */
-export interface SortOptions extends Intl.CollatorOptions {
-    direction: SortDirections;
-    sortKey: string;
-    locale?: string; // to create ISO enum interface
+export interface SortOptions extends SortFunctionOptions {
+    sortKey: string | string[];
 }
+
+export interface SortFunctionOptions extends Intl.CollatorOptions {
+    locale?: string; // to create ISO enum interface
+    direction: SortDirections;
+}
+
 /**
  * @enum {SortDirections} None = 0; Ascending = 1; Descending = 2
  */
