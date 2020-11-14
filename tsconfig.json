@@ -9,8 +9,10 @@
         "declarationMap": true,
         "noImplicitAny": true,
         "allowUmdGlobalAccess": true,
-        "esModuleInterop": true
-    },
+        "esModuleInterop": true,
+        "resolveJsonModule": true
+      },
+    
     "exclude": [
         "node_modules"
     ],
