@@ -108,3 +108,42 @@ describe('Sort by boolean order', () => {
         });
     });
 });
+
+
+describe('Sort by periodical order', () => {
+    const initDate = new Date(2020, 0, 1);
+    let collectionwithDate: any[];
+    beforeEach(() => {
+        // inject date to each item in collection
+        collectionwithDate = collection.map((item: Record<string, unknown>, index) => {
+            return { ...item, date: new Date(new Date(initDate).setDate(index + 2)) };
+        });
+    });
+    describe('in ascending order', () => {
+        beforeEach(() => {
+            collectionwithDate = SortByProperty(collectionwithDate, {
+                direction: SortDirections.Ascending,
+                sortKey: ['date']
+            });
+        });
+
+        test('2020-01-01 to be first', () => {
+            const readableDate = new Date(collectionwithDate[0].date).toUTCString();
+            expect(readableDate).toBe('Wed, 01 Jan 2020 23:00:00 GMT');
+        });
+    });
+    describe('in descending order order', () => {
+        beforeEach(() => {
+            collectionwithDate = SortByProperty(collectionwithDate, {
+                direction: SortDirections.Descending,
+                sortKey: 'date'
+            });
+        });
+
+        test('2020-01-05 to be first', () => {
+            const readableDate = new Date(collectionwithDate[0].date).toUTCString();
+            expect(readableDate).toBe('Sun, 05 Jan 2020 23:00:00 GMT');
+        });
+    });
+});
+

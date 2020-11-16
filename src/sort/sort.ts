@@ -25,6 +25,7 @@ export default (collection: any[], options: SortOptions): any[] => {
                 break;
 
             case 'object':
+                // loop through each sortkey in the object
                 options.sortKey.map((key) => {
                     a = a[key];
                     b = b[key];
@@ -38,13 +39,26 @@ export default (collection: any[], options: SortOptions): any[] => {
             case 'number':
                 return SortNumericalOrder(a, b, options);
             case 'boolean':
+                // if boolean, it will sort it numerically by it's number value (0/1)
                 a = Number(a);
                 b = Number(b);
                 return SortNumericalOrder(a, b, options);
+            case 'object':
+                if (a instanceof Date) {
+                    // if instance of Date, it will be sorted numerically by milliseconds
+                    a = a.getTime();
+                    b = b.getTime();
+                    return SortNumericalOrder(a, b, options);
+                }
+                else {
+                    break;
+                }
             // fallback
+            case 'undefined':
+                console.error(`Unable to succesfully sort by ${options.sortKey}.`);
+                break;
             default:
                 break;
-            // return SortAlphabeticalOrder(collection, options);
         }
 
     });
