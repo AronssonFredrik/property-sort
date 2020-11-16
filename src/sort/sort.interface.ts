@@ -1,9 +1,24 @@
 /**
+ * @enum {SortDirections} None = 0; Ascending = 1; Descending = 2
+ */
+export enum SortDirections {
+    None,
+    Ascending,
+    Descending
+}
+
+export interface SortFunctionOptions extends Intl.CollatorOptions {
+    locale?: string; // to create ISO enum interface
+    direction: SortDirections;
+}
+
+
+/**
  * @param {SortDirections} direction - uses type of SortDirections
  * @param {string} sortKey - property key to sort by
  * @param {string} locale - the locale to sort by, use ISO 639-1 Language Code
  * @extends Intl.CollatorOptions
- * @example { 
+ * @example {
  *  direction: SortDirections.Ascending,
  *  sortKey: 'id',
  *  locale: 'se',
@@ -15,16 +30,3 @@ export interface SortOptions extends SortFunctionOptions {
     sortKey: string | string[];
 }
 
-export interface SortFunctionOptions extends Intl.CollatorOptions {
-    locale?: string; // to create ISO enum interface
-    direction: SortDirections;
-}
-
-/**
- * @enum {SortDirections} None = 0; Ascending = 1; Descending = 2
- */
-export enum SortDirections {
-    None,
-    Ascending,
-    Descending
-}

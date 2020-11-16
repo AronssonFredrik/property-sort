@@ -1,12 +1,10 @@
-import { SortAlphabeticalOrder } from './sort/alphabetical/alphabetical';
-import SortByProperty from './sort/sort';
-import { SortOptions, SortDirections } from './sort/sort.interface';
+import sortByProperty from "./sort/sort";
+import { SortOptions, SortDirections } from "./sort/sort.interface";
 
-export default SortByProperty;
+export default sortByProperty;
 
 export {
-    SortByProperty,
-    SortAlphabeticalOrder,
+    sortByProperty,
 
     SortOptions,
 
