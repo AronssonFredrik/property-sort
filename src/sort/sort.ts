@@ -37,6 +37,10 @@ export default (collection: any[], options: SortOptions): any[] => {
                 return SortAlphabeticalOrder(a, b, options);
             case 'number':
                 return SortNumericalOrder(a, b, options);
+            case 'boolean':
+                a = Number(a);
+                b = Number(b);
+                return SortNumericalOrder(a, b, options);
             // fallback
             default:
                 break;

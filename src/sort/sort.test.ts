@@ -81,3 +81,30 @@ describe('Sort by numerical order', () => {
         });
     });
 });
+
+describe('Sort by boolean order', () => {
+    describe('in ascending order', () => {
+        beforeEach(() => {
+            collection = SortByProperty(collection, {
+                direction: SortDirections.Ascending,
+                sortKey: 'active'
+            });
+        });
+
+        test('False (0) to be first', () => {
+            expect(collection[0].active).toBe(false);
+        });
+    });
+    describe('in descending order order', () => {
+        beforeEach(() => {
+            collection = SortByProperty(collection, {
+                direction: SortDirections.Descending,
+                sortKey: 'active'
+            });
+        });
+
+        test('True (1) to be first', () => {
+            expect(collection[0].active).toBe(true);
+        });
+    });
+});

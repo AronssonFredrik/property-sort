@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "active": true,
         "name": "Leanne Graham",
         "username": "Bret",
         "email": "Sincere@april.biz",
@@ -24,6 +25,7 @@
     },
     {
         "id": 2,
+        "active": true,
         "name": "Ervin Howell",
         "username": "Antonette",
         "email": "Shanna@melissa.tv",
@@ -47,6 +49,7 @@
     },
     {
         "id": 3,
+        "active": true,
         "name": "Clementine Bauch",
         "username": "Samantha",
         "email": "Nathan@yesenia.net",
@@ -70,6 +73,7 @@
     },
     {
         "id": 4,
+        "active": true,
         "name": "Patricia Lebsack",
         "username": "Karianne",
         "email": "Julianne.OConner@kory.org",
@@ -93,6 +97,7 @@
     },
     {
         "id": 5,
+        "active": false,
         "name": "Chelsey Dietrich",
         "username": "Kamren",
         "email": "Lucio_Hettinger@annie.ca",
