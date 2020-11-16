@@ -54,3 +54,30 @@ describe('Sort by alphabetical order', () => {
         test('Antonette should be last', () => expect(collection[collection.length - 1].username).toBe('Antonette'));
     });
 });
+
+describe('Sort by numerical order', () => {
+    describe('in ascending order', () => {
+        beforeEach(() => {
+            collection = SortByProperty(collection, {
+                direction: SortDirections.Ascending,
+                sortKey: 'id'
+            });
+        });
+
+        test('"Leanne Graham" to be first', () => {
+            expect(collection[0].name).toBe('Leanne Graham');
+        });
+    });
+    describe('in descending order order', () => {
+        beforeEach(() => {
+            collection = SortByProperty(collection, {
+                direction: SortDirections.Descending,
+                sortKey: 'id'
+            });
+        });
+
+        test('"Chelsey Dietrich" to be first', () => {
+            expect(collection[0].name).toBe('Chelsey Dietrich');
+        });
+    });
+});

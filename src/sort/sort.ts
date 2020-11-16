@@ -1,4 +1,5 @@
 import { SortAlphabeticalOrder } from "./alphabetical/alphabetical";
+import { SortNumericalOrder } from "./numerical/numerical";
 import { SortOptions } from "./sort.interface";
 
 /**
@@ -34,6 +35,8 @@ export default (collection: any[], options: SortOptions): any[] => {
         switch (typeof a) {
             case 'string':
                 return SortAlphabeticalOrder(a, b, options);
+            case 'number':
+                return SortNumericalOrder(a, b, options);
             // fallback
             default:
                 break;
