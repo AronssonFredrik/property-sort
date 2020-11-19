@@ -1,4 +1,6 @@
 {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
     "roots": [
         "<rootDir>/src"
     ],
@@ -6,7 +8,28 @@
         "**/?(*.)+(test).+(ts)"
     ],
     "transform": {
-        "^.+\\.(ts)$": "ts-jest"
+        "\\.[tj]sx?$": [
+            "babel-jest",
+            {
+                "presets": [
+                    [
+                        "@babel/preset-env",
+                        {
+                            "targets": {
+                                "node": 10
+                            }
+                        }
+                    ]
+                ],
+                "plugins": [
+                    "@babel/plugin-proposal-class-properties",
+                    "@babel/plugin-transform-typescript"
+                ]
+            }
+        ]
     },
+    "transformIgnorePatterns": [
+        "node_modules/(?!(language-code)/)"
+    ],
     "verbose": true
 }

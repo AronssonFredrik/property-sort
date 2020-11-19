@@ -1,6 +1,6 @@
 {
   "name": "property-sort",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Sorting an array by it's property",
   "type": "module",
   "main": "dist/index.js",
@@ -12,10 +12,17 @@
     "deploy": "npm publish",
     "lint": "eslint . --ext .ts"
   },
+  "dependencies": {
+    "language-code": "0.0.4"
+  },
   "devDependencies": {
+    "@babel/preset-env": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-typescript": "^7.12.1",
     "@types/jest": "^26.0.15",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
+    "babel-jest": "^26.6.3",
     "eslint": "^7.13.0",
     "jest": "^26.6.3",
     "ts-jest": "^26.4.4",
@@ -34,7 +41,6 @@
   ],
   "files": [
     "dist",
-    "src",
     "README.md"
   ],
   "repository": {
