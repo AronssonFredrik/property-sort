@@ -6,7 +6,7 @@
 Install the package...
 
 ```bash
-npm install svea
+npm install property-sort
 ```
 
 Use in project:
