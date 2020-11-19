@@ -1,3 +1,5 @@
+import LanguageCode from "language-code";
+
 /**
  * @enum {SortDirections} None = 0; Ascending = 1; Descending = 2
  */
@@ -8,7 +10,7 @@ export enum SortDirections {
 }
 
 export interface SortFunctionOptions extends Intl.CollatorOptions {
-    locale?: string; // to create ISO enum interface
+    locale?: LanguageCode; // to create ISO enum interface
     direction: SortDirections;
 }
 

@@ -1,6 +1,8 @@
-import sortByProperty from "..";
+import { sortByProperty } from "..";
 import { SortDirections } from "./sort.interface";
 import mockCollection from "./sort.mock.json";
+
+import { LanguageCode } from "language-code";
 
 let collection = mockCollection;
 
@@ -11,7 +13,8 @@ describe("Handle sorttype", () => {
         beforeEach(() => {
             collection = sortByProperty(collection, {
                 direction: SortDirections.Ascending,
-                sortKey: ["address", "street"]
+                sortKey: ["address", "street"],
+                locale: LanguageCode.sv
             });
         });
         test("'Douglas Extension' should be first", () => expect(collection[0].address.street).toBe("Douglas Extension"));

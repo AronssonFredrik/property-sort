@@ -1,3 +1,4 @@
+import LanguageCode from "language-code";
 import { SortDirections } from "../sort.interface";
 import { sortAlphabeticalOrder } from "./alphabetical";
 
@@ -10,7 +11,7 @@ describe("Sorting alphabetically", () => {
             beforeEach(() => {
                 returnVal = sortAlphabeticalOrder("ä", "z", {
                     direction: SortDirections.Ascending,
-                    locale: "de"
+                    locale: LanguageCode.de
                 });
             });
             test("Ä sorts before z", () => expect(returnVal).toBeLessThan(0));
@@ -20,7 +21,7 @@ describe("Sorting alphabetically", () => {
             beforeEach(() => {
                 returnVal = sortAlphabeticalOrder("ä", "z", {
                     direction: SortDirections.Ascending,
-                    locale: "se"
+                    locale: LanguageCode.sv
                 });
             });
             test("Ä sorts after z", () => expect(returnVal).toBeGreaterThan(0));
