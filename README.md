@@ -1,8 +1,7 @@
 # Property Sort
 [![npm](https://img.shields.io/npm/v/property-sort.svg)](https://www.npmjs.com/package/property-sort)
 
-`property-sort` is a function designed to simply setup sorting for your array. `property-sort` lets you setup sorting in alphabetical, numerical ordering and more.
-
+`property-sort` provides a method that lets you setup sorting in alphabetical, numerical ordering and more. No more hassle sorting your arrays.
 
 ## Getting started
 
@@ -13,8 +12,8 @@ npm install property-sort
 ```
 
 ## Usage
-Plain JavaScript:
-```JavaScript
+### Plain TypeScript:
+```TypeScript
 import sortByProperty, { SortDirections, SortOptions } from 'property-sort';
 import LanguageCode from 'language-code';
 
@@ -30,15 +29,19 @@ let options: SortOptions = {
 collection = sortByProperty(collection, options);
 ```
 
+
 ## Properties
 
-For `sortByProperty`:
+### `sortByProperty` (method):
+```Javascript
+sortByProperty(collection: any[], options: SortOptions): any[]
+```
 | Property    | Type                   | Description                                      |
 | -----       | -----                  | -----                                            |
 | collection  | `array`                | array to sort                                    |
 | options     | `SortOptions`          | options on sorting                               |
 
-for `SortOptions`:
+### `SortOptions` (interface):
 | Property    | Type                   | Description                                      |
 | -----       | -----                  | -----                                            |
 | sortKey     | `string` or `string[]` | array to sort                                    |
@@ -46,13 +49,9 @@ for `SortOptions`:
 | locale      | [`LanguageCode`](https://github.com/AronssonFredrik/language-code)         | Enum for locale coe (ISO 639-1)                  |
 | numeric     | `boolean`              | Used when comparing strings using numeric values |
 
-For `SortDirection`
+### `SortDirection` (interface)
 | Key         | Value                  | Description                                      |
 | -----       | -----                  | -----                                            |
 | None        | 0                      | Used to reset sorting                            |
 | Ascending   | 1                      | Used to sort in ascending order                  |
 | Descending  | 2                      | Used to sort in descending order                 |
-
------
-
-To be continued (..)
