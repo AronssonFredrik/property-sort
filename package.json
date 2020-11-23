@@ -1,7 +1,7 @@
 {
   "name": "property-sort",
-  "version": "0.0.14",
-  "description": "Sorting an array by it's property",
+  "version": "1.0.0",
+  "description": "Sort an array by its property",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,6 +30,7 @@
     "typescript": "^4.0.5"
   },
   "keywords": [
+    "typescript",
     "javascript",
     "property",
     "sort",
@@ -37,7 +38,8 @@
     "alphabetically",
     "nummerically",
     "ascending",
-    "descending"
+    "descending",
+    "array"
   ],
   "files": [
     "dist",
