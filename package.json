@@ -1,6 +1,6 @@
 {
   "name": "property-sort",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Sort an array by its property",
   "type": "module",
   "main": "dist/index.js",
@@ -16,9 +16,9 @@
     "language-code": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.12.1",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-transform-typescript": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
     "@types/jest": "^26.0.15",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
