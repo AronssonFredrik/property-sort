@@ -1,6 +1,6 @@
 {
   "name": "property-sort",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Sort an array by its property",
   "type": "module",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
     "test": "jest",
     "cleanup": "rm -rf ./dist",
     "build": "npm run cleanup && tsc",
-    "deploy": "npm publish",
+    "deploy": "npm run build && npm publish",
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
