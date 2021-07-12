@@ -114,12 +114,20 @@ describe("Sort by boolean order", () => {
 
 
 describe("Sort by periodical order", () => {
-    const initDate = new Date(2020, 0, 1);
+    const initDate = {
+        year: 2020,
+        month: 0,
+        day: 1
+    };
     let collectionwithDate: any[];
     beforeEach(() => {
         // inject date to each item in collection
         collectionwithDate = collection.map((item: Record<string, unknown>, index) => {
-            return { ...item, date: new Date(new Date(initDate).setDate(index + 2)) };
+            const day = initDate.day + index;
+            return {
+                ...item,
+                date: new Date(Date.UTC(initDate.year, initDate.month, day))
+            };
         });
     });
     describe("in ascending order", () => {
@@ -132,7 +140,7 @@ describe("Sort by periodical order", () => {
 
         test("2020-01-01 to be first", () => {
             const readableDate = new Date(collectionwithDate[0].date).toUTCString();
-            expect(readableDate).toBe("Wed, 01 Jan 2020 23:00:00 GMT");
+            expect(readableDate).toContain("01 Jan 2020");
         });
     });
     describe("in descending order order", () => {
@@ -145,7 +153,7 @@ describe("Sort by periodical order", () => {
 
         test("2020-01-05 to be first", () => {
             const readableDate = new Date(collectionwithDate[0].date).toUTCString();
-            expect(readableDate).toBe("Sun, 05 Jan 2020 23:00:00 GMT");
+            expect(readableDate).toContain("05 Jan 2020");
         });
     });
 });
