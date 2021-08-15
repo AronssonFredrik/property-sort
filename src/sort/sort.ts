@@ -1,6 +1,6 @@
 import { sortAlphabeticalOrder } from "./alphabetical/alphabetical";
 import { sortNumericalOrder } from "./numerical/numerical";
-import { SortOptions, UnknownObject } from "./sort.interface";
+import { SortOptions, SortObject, UnknownObject } from "./sort.interface";
 
 /**
  * @module
@@ -16,20 +16,20 @@ import { SortOptions, UnknownObject } from "./sort.interface";
  * @returns sorted array
  */
 
-export default <T extends UnknownObject, U extends SortOptions>(collection: T[], options: U): T[] => {
+export default <T extends (SortObject<T | UnknownObject>), U extends SortOptions>(collection: T[], options: U): T[] => {
     return collection.sort((a, b) => {
         // setting sort key on desired object item.
         switch (typeof options.sortKey) {
             case "object":
                 // loop through each sortkey in the object
                 options.sortKey.map((key) => {
-                    a = a[key] as T;
-                    b = b[key] as T;
+                    a = a[key as keyof T] as T;
+                    b = b[key as keyof T] as T;
                 });
                 break;
             case "string":
-                (a as unknown as string) = a[options.sortKey] as string;
-                (b as unknown as string) = b[options.sortKey] as string;
+                (a as unknown as string) = a[options.sortKey as keyof T] as string;
+                (b as unknown as string) = b[options.sortKey as keyof T] as string;
                 break;
 
         }

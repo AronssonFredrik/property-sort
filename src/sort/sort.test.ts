@@ -1,10 +1,16 @@
-import { sortByProperty } from "..";
-import { SortDirections, UnknownObject } from "./sort.interface";
+import { sortByProperty, UnknownObject } from "..";
+import { SortDirections, SortObject } from "./sort.interface";
 import mockCollection from "./sort.mock.json";
 
 import { LanguageCode } from "language-code";
 
-let collection = mockCollection;
+interface Mock extends UnknownObject {
+    address: {
+        street: string
+    }
+}
+
+let collection: SortObject<Mock[]> = mockCollection;
 
 // mock data from https://jsonplaceholder.typicode.com/users
 

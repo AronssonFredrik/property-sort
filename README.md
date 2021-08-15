@@ -14,11 +14,11 @@ npm install property-sort
 ## Usage
 ### Plain TypeScript:
 ```TypeScript
-import sortByProperty, { SortDirections, SortOptions } from 'property-sort';
+import sortByProperty, { SortDirections, SortOptions, SortObject } from 'property-sort';
 import LanguageCode from 'language-code';
 
 ...
-let collection: item[] = ...;
+let collection: SortObject<item>[] = ...;
 let options: SortOptions = {
   direction: SortDirections.Ascending,
   sortKey: ['adress', 'suite'],
@@ -34,7 +34,7 @@ collection = sortByProperty(collection, options);
 
 ### `sortByProperty` (method):
 ```Javascript
-sortByProperty(collection: any[], options: SortOptions): any[]
+sortByProperty(collection: SortObject<UnknownObject[]>, options: SortOptions): any[]
 ```
 | Property    | Type                   | Description                                      |
 | -----       | -----                  | -----                                            |

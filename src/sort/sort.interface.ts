@@ -32,4 +32,9 @@ export interface SortOptions extends SortFunctionOptions {
     sortKey: string | string[];
 }
 
+
 export type UnknownObject = Record<string, (string | number | Date | unknown)>;
+
+export type SortObject <T> = {
+    [K in keyof T]: T[K]
+}

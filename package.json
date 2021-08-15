@@ -1,6 +1,6 @@
 {
   "name": "property-sort",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Sort an array by its property",
   "type": "module",
   "main": "dist/index.js",
