@@ -1,5 +1,5 @@
 import { sortByProperty } from "..";
-import { SortDirections } from "./sort.interface";
+import { SortDirections, UnknownObject } from "./sort.interface";
 import mockCollection from "./sort.mock.json";
 
 import { LanguageCode } from "language-code";
@@ -119,10 +119,10 @@ describe("Sort by periodical order", () => {
         month: 0,
         day: 1
     };
-    let collectionwithDate: any[];
+    let collectionwithDate: UnknownObject[];
     beforeEach(() => {
         // inject date to each item in collection
-        collectionwithDate = collection.map((item: Record<string, unknown>, index) => {
+        collectionwithDate = collection.map((item: UnknownObject, index) => {
             const day = initDate.day + index;
             return {
                 ...item,
@@ -139,7 +139,7 @@ describe("Sort by periodical order", () => {
         });
 
         test("2020-01-01 to be first", () => {
-            const readableDate = new Date(collectionwithDate[0].date).toUTCString();
+            const readableDate = new Date(collectionwithDate[0].date as Date).toUTCString();
             expect(readableDate).toContain("01 Jan 2020");
         });
     });
@@ -152,7 +152,7 @@ describe("Sort by periodical order", () => {
         });
 
         test("2020-01-05 to be first", () => {
-            const readableDate = new Date(collectionwithDate[0].date).toUTCString();
+            const readableDate = new Date(collectionwithDate[0].date as Date).toUTCString();
             expect(readableDate).toContain("05 Jan 2020");
         });
     });
