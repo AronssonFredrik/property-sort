@@ -18,7 +18,7 @@ import sortByProperty, { SortDirections, SortOptions, SortObject } from 'propert
 import LanguageCode from 'language-code';
 
 ...
-let collection: SortObject<item>[] = ...;
+let collection: SortObject<YourItem[]> = ...;
 let options: SortOptions = {
   direction: SortDirections.Ascending,
   sortKey: ['adress', 'suite'],
