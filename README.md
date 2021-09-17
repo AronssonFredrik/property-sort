@@ -38,7 +38,7 @@ sortByProperty(collection: SortObject<UnknownObject[]>, options: SortOptions): S
 ```
 | Property    | Type                                                       | Description                                 |
 | -----       | -----                                                      | -----                                       |
-| collection  | [SortObject<UnknownObject>](#sortobjectunknownobject-type) | array to sort                               |
+| collection  | [`SortObject<UnknownObject[]>`](#sortobjectunknownobject-type) | array to sort                               |
 | options     | [SortOptions](#sortoptions-interface)                      | options on sorting                          |
 
 ### `SortOptions` (interface):
@@ -60,7 +60,7 @@ sortByProperty(collection: SortObject<UnknownObject[]>, options: SortOptions): S
 `SortObject` is a generic type, which takes in an array of unknown objects. This will allow you to to work with your own interfaces while benefitting from writing typed.
 
 ### `LocaleType` (type)
-A standardized nomenclature used to classify languages. The `LocaleType` accepts a wildcard string or an ENUM using [`LanguageCode`](https://github.com/AronssonFredrik/language-code). As a fallback `LocaleType` will be set to "en", this will be done when leaving it as undefined or an invalid `LocaleType`.
+A standardized nomenclature used to classify languages. The `LocaleType` accepts a wildcard string or an ENUM using [`LanguageCode`](https://github.com/AronssonFredrik/language-code). As a fallback `LocaleType` will be set to "en" (English), this will be done when leaving it as undefined or an invalid `LocaleType`.
 
 ### `SortType` (type)
 `SortType` is a type which accepts a string or array of strings, which represents the key you would like to sort the array by.
