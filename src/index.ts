@@ -1,5 +1,5 @@
 import sortByProperty from "./sort/sort";
-import { SortOptions, SortDirections, UnknownObject, SortObject } from "./sort/sort.interface";
+import { SortOptions, SortDirections, UnknownObject, SortObject, LocaleType } from "./sort/sort.interface";
 
 export default sortByProperty;
 
@@ -8,5 +8,6 @@ export {
     SortOptions,
     SortDirections,
     SortObject,
-    UnknownObject
+    UnknownObject,
+    LocaleType
 };

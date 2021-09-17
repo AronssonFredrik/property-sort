@@ -34,20 +34,20 @@ collection = sortByProperty(collection, options);
 
 ### `sortByProperty` (method):
 ```Javascript
-sortByProperty(collection: SortObject<UnknownObject[]>, options: SortOptions): any[]
+sortByProperty(collection: SortObject<UnknownObject[]>, options: SortOptions): SortObject<UnknownObject>
 ```
-| Property    | Type                   | Description                                      |
-| -----       | -----                  | -----                                            |
-| collection  | `array`                | array to sort                                    |
-| options     | `SortOptions`          | options on sorting                               |
+| Property    | Type                                                       | Description                                 |
+| -----       | -----                                                      | -----                                       |
+| collection  | [`SortObject<UnknownObject[]>`](#sortobjectunknownobject-type) | array to sort                               |
+| options     | [SortOptions](#sortoptions-interface)                      | options on sorting                          |
 
 ### `SortOptions` (interface):
-| Property    | Type                   | Description                                      |
-| -----       | -----                  | -----                                            |
-| sortKey     | `string` or `string[]` | array to sort                                    |
-| direction   | `SortDirection`        | Sets sort to ascending/descending order          |
-| locale      | [`LanguageCode`](https://github.com/AronssonFredrik/language-code)         | Enum for locale coe (ISO 639-1)                  |
-| numeric     | `boolean`              | Used when comparing strings using numeric values |
+| Property    | Type                                        | Description                                      |
+| -----       | -----                                       | -----                                            |
+| sortKey     | [SortType](#sorttype-type)                  | Key to sort the array by                         |
+| direction   | [SortDirection](#sortdirection-interface)   | Sets sort to ascending/descending order          |
+| locale?     | [LocaleType](#localetype-type)              | Used to compare in chosen locale                 |
+| numeric?    | `boolean`                                   | Used when comparing strings using numeric values |
 
 ### `SortDirection` (interface)
 | Key         | Value                  | Description                                      |
@@ -55,3 +55,13 @@ sortByProperty(collection: SortObject<UnknownObject[]>, options: SortOptions): a
 | None        | 0                      | Used to reset sorting                            |
 | Ascending   | 1                      | Used to sort in ascending order                  |
 | Descending  | 2                      | Used to sort in descending order                 |
+
+### `SortObject<UnknownObject[]>` (type)
+`SortObject` is a generic type, which takes in an array of unknown objects. This will allow you to to work with your own interfaces while benefitting from writing typed.
+
+### `LocaleType` (type)
+A standardized nomenclature used to classify languages. The `LocaleType` accepts a wildcard string or an ENUM using [`LanguageCode`](https://github.com/AronssonFredrik/language-code). As a fallback `LocaleType` will be set to "en" (English), this will be done when leaving it as undefined or an invalid `LocaleType`.
+
+### `SortType` (type)
+`SortType` is a type which accepts a string or array of strings, which represents the key you would like to sort the array by.
+

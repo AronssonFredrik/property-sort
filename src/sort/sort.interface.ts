@@ -9,17 +9,30 @@ export enum SortDirections {
     Descending
 }
 
+export type UnknownObject = Record<string, (string | number | Date | unknown)>;
+
+export type SortObject <T> = {
+    [K in keyof T]: T[K]
+}
+
+export type LocaleType = LanguageCode | string;
+
+export type SortType = string | string[];
+
+
+
 export interface SortFunctionOptions extends Intl.CollatorOptions {
-    locale?: LanguageCode; // to create ISO enum interface
     direction: SortDirections;
+    locale?: LocaleType;
 }
 
 
 /**
  * @param {SortDirections} direction - uses type of SortDirections
- * @param {string} sortKey - property key to sort by
- * @param {string} locale - the locale to sort by, use ISO 639-1 Language Code
+ * @param {SortType} sortKey - property key to sort by
+ * @param {LocaleType} locale - the locale to sort by, use ISO 639-1 Language Code
  * @extends Intl.CollatorOptions
+ * @extends SortFunctionOptions
  * @example {
  *  direction: SortDirections.Ascending,
  *  sortKey: 'id',
@@ -29,12 +42,5 @@ export interface SortFunctionOptions extends Intl.CollatorOptions {
  * }
  */
 export interface SortOptions extends SortFunctionOptions {
-    sortKey: string | string[];
-}
-
-
-export type UnknownObject = Record<string, (string | number | Date | unknown)>;
-
-export type SortObject <T> = {
-    [K in keyof T]: T[K]
+    sortKey: SortType;
 }
