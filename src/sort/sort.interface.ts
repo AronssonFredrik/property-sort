@@ -32,6 +32,7 @@ export interface SortFunctionOptions extends Intl.CollatorOptions {
  * @param {SortType} sortKey - property key to sort by
  * @param {LocaleType} locale - the locale to sort by, use ISO 639-1 Language Code
  * @extends Intl.CollatorOptions
+ * @extends SortFunctionOptions
  * @example {
  *  direction: SortDirections.Ascending,
  *  sortKey: 'id',
