@@ -34,11 +34,11 @@ collection = sortByProperty(collection, options);
 
 ### `sortByProperty` (method):
 ```Javascript
-sortByProperty(collection: SortObject<UnknownObject[]>, options: SortOptions): SortObject<UnknownObject>
+sortByProperty(collection: SortObject<T>, options: SortOptions): T[]
 ```
 | Property    | Type                                                       | Description                                 |
 | -----       | -----                                                      | -----                                       |
-| collection  | [`SortObject<UnknownObject[]>`](#sortobjectunknownobject-type) | array to sort                               |
+| collection  | [`SortObject<T>`](#sortobjectt-type)      | array to sort                               |
 | options     | [SortOptions](#sortoptions-interface)                      | options on sorting                          |
 
 ### `SortOptions` (interface):
@@ -56,7 +56,7 @@ sortByProperty(collection: SortObject<UnknownObject[]>, options: SortOptions): S
 | Ascending   | 1                      | Used to sort in ascending order                  |
 | Descending  | 2                      | Used to sort in descending order                 |
 
-### `SortObject<UnknownObject[]>` (type)
+### `SortObject<T>` (type)
 `SortObject` is a generic type, which takes in an array of unknown objects. This will allow you to to work with your own interfaces while benefitting from writing typed.
 
 ### `LocaleType` (type)
