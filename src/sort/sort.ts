@@ -1,6 +1,6 @@
 import { sortAlphabeticalOrder } from "./alphabetical/alphabetical";
 import { sortNumericalOrder } from "./numerical/numerical";
-import { SortOptions, SortObject, UnknownObject } from "./sort.interface";
+import { SortOptions, SortObject, UnknownObject, SortDirections } from "./sort.interface";
 
 /**
  * @module
@@ -17,6 +17,10 @@ import { SortOptions, SortObject, UnknownObject } from "./sort.interface";
  */
 
 export default <T extends (SortObject<T | UnknownObject>), U extends SortOptions>(collection: T[], options: U): T[] => {
+    if (options.direction === SortDirections.None) {
+        return collection;
+    }
+
     return collection.sort((a, b) => {
         // setting sort key on desired object item.
         switch (typeof options.sortKey) {
