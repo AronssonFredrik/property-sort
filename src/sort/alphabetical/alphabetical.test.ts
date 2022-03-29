@@ -35,10 +35,9 @@ describe("Sorting alphabetically", () => {
                     direction: SortDirections.Ascending,
                     numeric: false
                 });
-
-                test("Second option should return first", () => expect(returnVal).toBeGreaterThan(0));
-
             });
+
+            test("Second option should return first", () => expect(returnVal).toBeGreaterThan(0));
         });
 
         describe("In ascending order", () => {
