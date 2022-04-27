@@ -48,23 +48,11 @@ export default <T extends (SortObject<T | UnknownObject>), U extends SortOptions
 
                 return sortNumericalOrder(Number(a), Number(b), options);
             case "object":
-                if (a instanceof Date) {
-                    console.warn("Sorting by date is deprecated and will be removed as of version 2.");
-                    // if instance of Date, it will be sorted numerically by milliseconds
-                    const milliseconds = {
-                        a: (a as Date).getTime(),
-                        b: (b as unknown as Date).getTime(),
-                    };
-
-                    return sortNumericalOrder(milliseconds.a, milliseconds.b, options);
-                }
-                else {
-                    console.error(`Unable to sort by the type ${typeof options.sortKey}.`);
-                    break;
-                }
+                console.error(`Unable to succesfully sort by type ${typeof options.sortKey} (${options.sortKey}).`);
+                break;
             // fallback
             case "undefined":
-                console.error(`Unable to succesfully sort by ${options.sortKey}.`);
+                console.error(`Unable to succesfully sort by type ${typeof options.sortKey} (${options.sortKey}).`);
                 break;
             default:
                 break;
