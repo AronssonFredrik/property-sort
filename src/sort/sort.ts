@@ -49,6 +49,7 @@ export default <T extends (SortObject<T | UnknownObject>), U extends SortOptions
                 return sortNumericalOrder(Number(a), Number(b), options);
             case "object":
                 if (a instanceof Date) {
+                    console.warn("Sorting by date is deprecated and will be removed as of version 2.");
                     // if instance of Date, it will be sorted numerically by milliseconds
                     const milliseconds = {
                         a: (a as Date).getTime(),
