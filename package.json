@@ -1,6 +1,6 @@
 {
   "name": "property-sort",
-  "version": "1.2.2",
+  "version": "2.0.0-0",
   "description": "Sort an array by its property",
   "type": "module",
   "main": "dist/index.js",
@@ -10,10 +10,16 @@
     "cleanup": "rm -rf ./dist",
     "build": "npm run cleanup && tsc",
     "deploy": "npm run build && npm publish",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "bump:major": "standard-version --release-as=major",
+    "bump:minor": "standard-version --release-as=minor",
+    "bump:patch": "standard-version --release-as=patch",
+    "prerelease:bump": "standard-version --release-as=major --prerelease",
+    "prerelease:next": "standard-version -- --prerelease next"
   },
   "dependencies": {
-    "language-code": "^1.0.0"
+    "language-code": "^1.0.0",
+    "standard-version": "^9.3.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
