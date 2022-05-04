@@ -1,7 +1,7 @@
 import { sortAlphabeticalOrder } from "./alphabetical/alphabetical";
 import { sortNumericalOrder } from "./numerical/numerical";
 import { SortOptions, SortObject, UnknownObject, SortDirections } from "./sort.interface";
-import { hasSortDirection } from "./util";
+import { hasSortDirection, sortByTypeof } from "./util";
 
 /**
  * @module
@@ -39,26 +39,7 @@ export default <T extends (SortObject<T | UnknownObject>), U extends SortOptions
 
         }
 
-        switch (typeof a) {
-            case "string":
-                return sortAlphabeticalOrder(a as string, b as unknown as string, options);
-            case "number":
-                return sortNumericalOrder(a as number, b as unknown as number, options);
-            case "boolean":
-                // if boolean, it will sort it numerically by it's number value (0/1)
-
-                return sortNumericalOrder(Number(a), Number(b), options);
-            case "object":
-                console.error(`Unable to succesfully sort by type ${typeof options.sortKey} (${options.sortKey}).`);
-                break;
-            // fallback
-            case "undefined":
-                console.error(`Unable to succesfully sort by type ${typeof options.sortKey} (${options.sortKey}).`);
-                break;
-            default:
-                break;
-        }
-
+        return sortByTypeof(a, b, options);
     });
 };
 
