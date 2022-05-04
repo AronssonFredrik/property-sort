@@ -8,7 +8,7 @@ const setLocaleFallback = (unknownLocale: LocaleType): LanguageCode => {
 };
 
 export const getLocale = (locale: LocaleType = "en"): LanguageCode => {
-    const response = LanguageCode[locale as LanguageCode] ?? setLocaleFallback(locale);
+    const language = LanguageCode[locale as LanguageCode] ?? setLocaleFallback(locale);
 
-    return response;
+    return language;
 };
