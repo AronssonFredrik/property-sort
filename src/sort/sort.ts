@@ -1,6 +1,7 @@
 import { sortAlphabeticalOrder } from "./alphabetical/alphabetical";
 import { sortNumericalOrder } from "./numerical/numerical";
 import { SortOptions, SortObject, UnknownObject, SortDirections } from "./sort.interface";
+import { hasSortDirection } from "./util";
 
 /**
  * @module
@@ -17,7 +18,7 @@ import { SortOptions, SortObject, UnknownObject, SortDirections } from "./sort.i
  */
 
 export default <T extends (SortObject<T | UnknownObject>), U extends SortOptions>(collection: T[], options: U): T[] => {
-    if (options.direction === SortDirections.None) {
+    if (!hasSortDirection(options.direction)) {
         return collection;
     }
 
@@ -60,3 +61,4 @@ export default <T extends (SortObject<T | UnknownObject>), U extends SortOptions
 
     });
 };
+
