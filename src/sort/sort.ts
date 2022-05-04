@@ -1,5 +1,7 @@
 import { SortOptions, SortObject, UnknownObject } from "./sort.interface";
-import { getSortKey, hasSortDirection, sortByTypeof } from "./util";
+import { getSortKey } from "./util/get-sort-key";
+import { hasSortDirection } from "./util/has-sort-direction";
+import { sortByTypeof } from "./util/sort-by-typeof";
 
 /**
  * @module
@@ -20,12 +22,5 @@ export default <T extends (SortObject<T | UnknownObject>), U extends SortOptions
         return collection;
     }
 
-
-    return collection.sort((first: T, second: T) => {
-        [first, second] = getSortKey(first, second, options);
-
-
-        return sortByTypeof(first, second, options);
-    });
+    return collection.sort((first: T, second: T) => sortByTypeof(getSortKey(first, second, options), options));
 };
-
