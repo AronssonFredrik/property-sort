@@ -1,6 +1,4 @@
-import { sortAlphabeticalOrder } from "./alphabetical/alphabetical";
-import { sortNumericalOrder } from "./numerical/numerical";
-import { SortOptions, SortObject, UnknownObject, SortDirections } from "./sort.interface";
+import { SortOptions, SortObject, UnknownObject } from "./sort.interface";
 import { hasSortDirection, sortByTypeof } from "./util";
 
 /**
