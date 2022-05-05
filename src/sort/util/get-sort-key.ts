@@ -1,8 +1,6 @@
 import { SortObject, SortOptions } from "../sort.interface";
 
-export const getSortKey = <T extends (SortObject<T>)>
-    (first: T, second: T, options: SortOptions): SortObject<T>[] => {
-
+export const getSortKey = <T extends (SortObject<T>)> (first: T, second: T, options: SortOptions): SortObject<T>[] => {
     // setting sort key on desired object item.
     switch (typeof options.sortKey) {
         case "object":
@@ -17,7 +15,6 @@ export const getSortKey = <T extends (SortObject<T>)>
             (second as unknown as string) = second[options.sortKey as keyof T] as string;
             break;
     }
-
 
     return [first, second];
 };
