@@ -78,8 +78,8 @@ collection = sortByProperty(collection, options);
 ## Properties
 
 ### `sortByProperty` (method):
-```Javascript
-sortByProperty(collection: SortObject<T>, options: SortOptions): T[]
+```TypeScript
+sortByProperty(collection: T[], options: SortOptions): T[]
 ```
 | Property    | Type                                                       | Description                                 |
 | -----       | -----                                                      | -----                                       |
