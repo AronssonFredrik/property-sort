@@ -3,6 +3,52 @@
 
 `property-sort` provides a method that lets you setup sorting in alphabetical, numerical ordering and more. No more hassle sorting your arrays.
 
+
+## Example
+
+```TypeScript
+let collection = [
+  {
+    user: { name: "Denzil Norris", age: 22 }
+  },
+  {
+    user: { name: "Clarissa London", age: 20 }
+  }
+];
+
+let options = {
+  direction: SortDirections.Ascending,
+  sortKey: ['user', 'name'],
+  locale: LanguageCode.en
+};
+
+sortByProperty(collection, options);
+/*[
+  {
+    user: { name: "Clarissa London", age: 20 }
+  },
+  {
+    user: { name: "Denzil Norris", age: 22 }
+  }
+]*/
+
+options = {
+  direction: SortDirections.Descending,
+  sortKey: ['user', 'age'],
+  locale: LanguageCode.en
+};
+
+sortByProperty(collection, options);
+/*[
+  {
+    user: { name: "Denzil Norris", age: 22 }
+  },
+  {
+    user: { name: "Clarissa London", age: 20 }
+  }
+]*/
+```
+
 ## Getting started
 
 Install the package...
@@ -27,87 +73,6 @@ let options: SortOptions = {
 };
 
 collection = sortByProperty(collection, options);
-```
-
-### Example
-
-```TypeScript
-let collection = [
-  {
-    user: {
-      name: "Denzil Norris",
-      age: 22
-    }
-  },
-  {
-    user: {
-      name: "Clarissa London",
-      age: 20
-    }
-  },
-  {
-    user: {
-      name: "Rhett Thrussell",
-      age: 21
-    }
-  },
-]
-
-let options = {
-  direction: SortDirections.Ascending,
-  sortKey: ['user', 'name'],
-  locale: LanguageCode.en
-};
-
-sortByProperty(collection, options);
-/*[
-  {
-    user: {
-      name: "Clarissa London",
-      age: 20
-    }
-  },
-  {
-    user: {
-      name: "Denzil Norris",
-      age: 22
-    }
-  },
-  {
-    user: {
-      name: "Rhett Thrussell",
-      age: 21
-    }
-  },
-]*/
-
-options = {
-  direction: SortDirections.Descending,
-  sortKey: ['user', 'age'],
-  locale: LanguageCode.en
-};
-
-sortByProperty(collection, options);
-/*[
-  {
-    user: {
-      name: "Denzil Norris",
-      age: 22
-    }
-  },
-  {
-    user: {
-      name: "Rhett Thrussell",
-      age: 21
-    }
-  },
-  {
-    user: {
-      name: "Clarissa London",
-      age: 20
-    }
-  }
-]*/
 ```
 
 ## Properties
