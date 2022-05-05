@@ -9,7 +9,9 @@ export enum SortDirections {
     Descending
 }
 
-export type UnknownObject = Record<string, (string | number | Date | unknown)>;
+export type SortDataTypes = string | number | unknown;
+
+export type UnknownObject = Record<string, (SortDataTypes)>;
 
 export type SortObject <T> = {
     [K in keyof T]: T[K]

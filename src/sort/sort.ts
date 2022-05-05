@@ -1,6 +1,7 @@
-import { sortAlphabeticalOrder } from "./alphabetical/alphabetical";
-import { sortNumericalOrder } from "./numerical/numerical";
-import { SortOptions, SortObject, UnknownObject, SortDirections } from "./sort.interface";
+import { SortOptions, SortObject, UnknownObject } from "./sort.interface";
+import { getSortKey } from "./util/get-sort-key";
+import { hasSortDirection } from "./util/has-sort-direction";
+import { sortByTypeof } from "./util/sort-by-typeof";
 
 /**
  * @module
@@ -17,58 +18,9 @@ import { SortOptions, SortObject, UnknownObject, SortDirections } from "./sort.i
  */
 
 export default <T extends (SortObject<T | UnknownObject>), U extends SortOptions>(collection: T[], options: U): T[] => {
-    if (options.direction === SortDirections.None) {
+    if (!hasSortDirection(options.direction)) {
         return collection;
     }
 
-    return collection.sort((a, b) => {
-        // setting sort key on desired object item.
-        switch (typeof options.sortKey) {
-            case "object":
-                // loop through each sortkey in the object
-                options.sortKey.map((key) => {
-                    a = a[key as keyof T] as T;
-                    b = b[key as keyof T] as T;
-                });
-                break;
-            case "string":
-                (a as unknown as string) = a[options.sortKey as keyof T] as string;
-                (b as unknown as string) = b[options.sortKey as keyof T] as string;
-                break;
-
-        }
-
-        switch (typeof a) {
-            case "string":
-                return sortAlphabeticalOrder(a as string, b as unknown as string, options);
-            case "number":
-                return sortNumericalOrder(a as number, b as unknown as number, options);
-            case "boolean":
-                // if boolean, it will sort it numerically by it's number value (0/1)
-
-                return sortNumericalOrder(Number(a), Number(b), options);
-            case "object":
-                if (a instanceof Date) {
-                    console.warn("Sorting by date is deprecated and will be removed as of version 2.");
-                    // if instance of Date, it will be sorted numerically by milliseconds
-                    const milliseconds = {
-                        a: (a as Date).getTime(),
-                        b: (b as unknown as Date).getTime(),
-                    };
-
-                    return sortNumericalOrder(milliseconds.a, milliseconds.b, options);
-                }
-                else {
-                    console.error(`Unable to sort by the type ${typeof options.sortKey}.`);
-                    break;
-                }
-            // fallback
-            case "undefined":
-                console.error(`Unable to succesfully sort by ${options.sortKey}.`);
-                break;
-            default:
-                break;
-        }
-
-    });
+    return collection.sort((first: T, second: T) => sortByTypeof(getSortKey(first, second, options), options));
 };

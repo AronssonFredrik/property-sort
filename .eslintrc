@@ -10,6 +10,8 @@
         "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
+        "complexity": ["error", 4],
+        "max-depth": ["error", 2],
         "@typescript-eslint/no-explicit-any": 2,
         "no-alert": 2,
         "no-array-constructor": 2,
@@ -34,7 +36,7 @@
         "no-octal-escape": 2,
         "no-process-exit": 2,
         "no-proto": 2,
-        "no-return-assign": 2,
+        "no-return-assign": 0,
         "no-script-url": 2,
         "no-sequences": 2,
         "no-shadow-restricted-names": 2,

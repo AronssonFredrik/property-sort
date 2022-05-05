@@ -1,6 +1,6 @@
 {
   "name": "property-sort",
-  "version": "1.2.2",
+  "version": "2.0.1-next.0",
   "description": "Sort an array by its property",
   "type": "module",
   "main": "dist/index.js",
@@ -9,8 +9,14 @@
     "test": "jest",
     "cleanup": "rm -rf ./dist",
     "build": "npm run cleanup && tsc",
-    "deploy": "npm run build && npm publish",
-    "lint": "eslint . --ext .ts"
+    "deploy:latest": "npm run build && npm publish",
+    "deploy:next": "npm run build && npm publish --tag next",
+    "lint": "eslint . --ext .ts",
+    "bump:major": "standard-version --release-as=major",
+    "bump:minor": "standard-version --release-as=minor",
+    "bump:patch": "standard-version --release-as=patch",
+    "bump:pre:major": "standard-version --release-as=major --prerelease",
+    "bump:pre:next": "standard-version --prerelease next"
   },
   "dependencies": {
     "language-code": "^1.0.0"
@@ -25,6 +31,7 @@
     "babel-jest": "^27.5.1",
     "eslint": "^8.12.0",
     "jest": "^27.5.1",
+    "standard-version": "^9.3.2",
     "ts-jest": "^27.1.4",
     "ts-loader": "^9.2.8",
     "typescript": "^4.6.3"
