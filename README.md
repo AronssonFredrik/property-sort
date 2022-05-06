@@ -108,5 +108,5 @@ sortByProperty(collection: T[], options: SortOptions): T[]
 A standardized nomenclature used to classify languages. The `LocaleType` accepts a wildcard string or an ENUM using [`LanguageCode`](https://github.com/AronssonFredrik/language-code). As a fallback `LocaleType` will be set to "en" (English), this will be done when leaving it as undefined or an invalid `LocaleType`.
 
 ### `SortType` (type)
-`SortType` is a type which accepts a string or array of strings, which represents the key you would like to sort the array by.
+`SortType` is a type which accepts a string or array of strings, which represents the key you would like to sort the array by. Example: `'key'` or following, if the key is in an a nested object: `['nested','key']`.
 
